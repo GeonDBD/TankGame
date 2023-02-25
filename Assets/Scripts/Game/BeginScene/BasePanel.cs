@@ -21,18 +21,6 @@ public class BasePanel<T> : MonoBehaviour where T:class
         instance = this as T;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // 写虚函数，方便外部访问和子类重写
     public virtual void ShowPanel()
     {
