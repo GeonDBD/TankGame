@@ -18,10 +18,12 @@ public class QuitPanel : BasePanel<QuitPanel>
         };
         btnCancel.clickEvent += () =>
         {
+            GamePanel.Instance.ShowPanel();
             HidePanel();
         };
         btnCloss.clickEvent += () =>
-        { 
+        {
+            GamePanel.Instance.ShowPanel();
             HidePanel();
         };
 

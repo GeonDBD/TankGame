@@ -49,6 +49,10 @@ public class SettingPanel : BasePanel<SettingPanel>
             {
                 BeginPanel.Instance.ShowPanel();
             }
+            else if (SceneManager.GetActiveScene().name == "GameScene")
+            {
+                GamePanel.Instance.ShowPanel();
+            }
         };
 
         // 游戏开始运行，初始化一次上面事件，就隐藏面板
