@@ -13,8 +13,9 @@ public class BKMusic : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
         audioSource = this.GetComponent<AudioSource>();
-        // 每次打开游戏并唤醒脚本时都调用一次方法，来改变已存储的音量数据
+        // 每次打开游戏并唤醒脚本时，都调用一次方法，来改变已存储的音量数据
         SwitchOpenOrCloseBKMusic(GameDataMgr.Instance.musicData.isOpenMusic);
         ChangeVolume(GameDataMgr.Instance.musicData.musicValue);
     }

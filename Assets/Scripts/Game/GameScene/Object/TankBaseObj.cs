@@ -38,10 +38,10 @@ public abstract class TankBaseObj : MonoBehaviour
     }
     public virtual void Dead()
     {
-        if (deadEff != null )
+        if (deadEff != null)
         {
             // 实例化创建GameObject
-            GameObject effObj = Instantiate(deadEff, this.transform.position, this.transform.rotation);
+            GameObject effObj = Instantiate(deadEff, transform.position, transform.rotation);
             // 特效的音效控制
             AudioSource audioSource = effObj.GetComponent<AudioSource>();
             audioSource.volume = GameDataMgr.Instance.musicData.soundValue;

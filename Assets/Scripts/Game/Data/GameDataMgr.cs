@@ -6,6 +6,7 @@ public class GameDataMgr
 {
     private static GameDataMgr instance = new GameDataMgr();
     public static GameDataMgr Instance => instance;
+
     public MusicData musicData;
     public RankList rankData;
 
@@ -36,13 +37,11 @@ public class GameDataMgr
         musicData.isOpenMusic = isOpen;
         // 控制开关
         BKMusic.Instance.SwitchOpenOrCloseBKMusic(isOpen);
-        // 存储数据
         PlayerPrefsDataMgr.Instance.SaveData(musicData, "Music");
     }
     public void OpenOrCloseSound(bool isOpen)
     {
         musicData.isOpenSound = isOpen;
-        // 存储数据
         PlayerPrefsDataMgr.Instance.SaveData(musicData, "Music");
     }
     public void ChangeMusicValue(float value)
@@ -50,13 +49,11 @@ public class GameDataMgr
         musicData.musicValue = value;
         // 改变音量大小
         BKMusic.Instance.ChangeVolume(value);
-        // 存储数据
         PlayerPrefsDataMgr.Instance.SaveData(musicData, "Music");
     }
     public void ChangeSoundValue(float value)
     {
         musicData.soundValue = value;
-        // 存储数据
         PlayerPrefsDataMgr.Instance.SaveData(musicData, "Music");
     }
 

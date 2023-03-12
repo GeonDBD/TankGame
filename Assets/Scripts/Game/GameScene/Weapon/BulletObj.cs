@@ -10,13 +10,6 @@ public class BulletObj : MonoBehaviour
     // 子弹爆炸特效
     public GameObject bulletEffObj;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
@@ -25,9 +18,13 @@ public class BulletObj : MonoBehaviour
     // 触发处理
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Cube") || 
+        if (other == null)
+        {
+            return;
+        }
+        if (other.CompareTag("Cube") ||
             other.CompareTag("Ground") ||
-            other.CompareTag("Wall") || 
+            other.CompareTag("Wall") ||
             tankObj.CompareTag("Player") && other.CompareTag("Enemy") ||
             tankObj.CompareTag("Enemy") && other.CompareTag("Player"))
         {
@@ -41,7 +38,7 @@ public class BulletObj : MonoBehaviour
             // 播放特效
             if (bulletEffObj != null)
             {
-                GameObject effObj = Instantiate(bulletEffObj, this.transform.position, transform.rotation);
+                GameObject effObj = Instantiate(bulletEffObj, transform.position, transform.rotation);
                 // 改变特效的音效
                 AudioSource audioSource = effObj.GetComponent<AudioSource>();
                 audioSource.volume = GameDataMgr.Instance.musicData.soundValue;

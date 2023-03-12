@@ -31,14 +31,14 @@ public class GamePanel : BasePanel<GamePanel>
             SettingPanel.Instance.ShowPanel();
             // 改变时间缩放值，时停。但是要记得在隐藏面板是要把timeScale重新设为1
             Time.timeScale = 0;
-            GamePanel.Instance.HidePanel();
+            HidePanel();
         };
 
         btnQuit.clickEvent += () =>
         {
             QuitPanel.Instance.ShowPanel();
             Time.timeScale = 0;
-            GamePanel.Instance.HidePanel();
+            HidePanel();
         };
     }
 
